@@ -11,6 +11,7 @@
   <body>
    <?php include 'content/header.php'?>
    <?php include 'content/_dbconnect.php'?>
+
     <!-- slider -->
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">

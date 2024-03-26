@@ -20,12 +20,12 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="signupmodalLabel">Modal title</h5>
+                    <h5 class="modal-title" id="signupmodalLabel">Sign up</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form class="mx-1 mx-md-4" action="\LOGINSYSTEM\signup.php" method="post">
+                <form class="mx-1 mx-md-4" action="/fourm/content/_handalsignup.php" method="post">
                     <div class="modal-body">
 
                         <div class="d-flex flex-row align-items-center mb-4">
@@ -63,7 +63,7 @@
                             </button>
                         </div>
                         <div class="text-center">
-                            <p>Alredy a member? <a href="login.php">Login</a></p>
+                            <p>Alredy a member? <a href="">Login</a></p>
                         </div>
 
                     </div>
