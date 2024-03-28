@@ -1,4 +1,5 @@
 <?php
+session_start();
     echo"
     <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN crossorigin='anonymous'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
@@ -38,14 +39,25 @@
             <form class='example'>
               <input type='text' placeholder='Search' name='search'>
               <button type='submit'><i class='fa fa-search'></i></button>
-            </form>
-            <button data-mdb-ripple-init type='button' class='btn'data-toggle='modal' data-target='#loginmodal'>
+            </form>";
+            if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
+              echo "
+              <div class='ml-3'><h5>hi ".$_SESSION['name']."</h5></div>
+              <button data-mdb-ripple-init type='button' class='btn btn-primary ml-3'data-toggle='modal' data-target='#signupmodal'>
+                Sign up
+              </button>";
+            }
+            else{ 
+              echo " <button data-mdb-ripple-init type='button' class='btn'data-toggle='modal' data-target='#loginmodal'>
               Login
             </button>
             <button data-mdb-ripple-init type='button' class='btn btn-primary me-3'data-toggle='modal' data-target='#signupmodal'>
               Sign up
-            </button>
-                  </div>
+            </button>";
+              }
+            
+             
+        echo"</div>
         </div>
       </div>
     </nav>

@@ -30,8 +30,7 @@
 
                         <div class="d-flex flex-row align-items-center mb-4">
                             <div class="form-outline flex-fill mb-0">
-                                <input type="text" id="form3Example1c" class="form-control" name="Name"
-                                    maxlength="11" />
+                                <input type="text" id="form3Example1c" class="form-control" name="Name"/>
                                 <label class="form-label" for="form3Example1c">Your Name</label>
                             </div>
                         </div>

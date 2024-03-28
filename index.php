@@ -45,6 +45,20 @@ if(isset($_GET['message']) && $_GET['message']=="both password must be same"){
 </div>
 ';
 }
+if(isset($_GET['showError']) && $_GET['showError']=="pass err"){
+  echo'<div class="alert alert-warning alert-dismissible fade show my-0" role="alert">
+  <strong>login failed!</strong> Wrong password...
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+';
+}
+if(isset($_GET['showError']) && $_GET['showError']=="false"){
+  echo'<div class="alert alert-warning alert-dismissible fade show my-0" role="alert">
+  <strong>Login failed!</strong> Email not found...
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+';
+}
 ?>
 
     <!-- slider -->
