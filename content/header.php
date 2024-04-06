@@ -42,10 +42,10 @@ session_start();
             </form>";
             if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
               echo "
-              <div class='ml-3'><h5>hi ".$_SESSION['name']."</h5></div>
-              <button data-mdb-ripple-init type='button' class='btn btn-primary ml-3'data-toggle='modal' data-target='#signupmodal'>
-                Sign up
-              </button>";
+              <div class='ml-3'><h5>".$_SESSION['name']."</h5></div>
+              <a href='content/_signout.php' type='button' class='btn btn-primary ml-3'>
+                Sign out
+              </a>";
             }
             else{ 
               echo " <button data-mdb-ripple-init type='button' class='btn'data-toggle='modal' data-target='#loginmodal'>

@@ -16,6 +16,11 @@
     <?php include 'content/_dbconnect.php'?>
     <?php
    $id=$_GET['catid'];
+   if(!empty($_POST) && $_SERVER['REQUEST_METHOD']=='POST'){
+    $desc=$_POST['desc'];
+    $sql1="INSERT INTO `comment` (`c_desc`, `c_user_id`, `c_cat_id`, `timedate`) VALUES ('$desc', '0', '$id', current_timestamp());";
+    $result1=mysqli_query($conn,$sql1);
+   }
    $sql="SELECT * FROM `catagory` WHERE catagory_id=$id;";
    $result=mysqli_query($conn,$sql);
    $row=mysqli_fetch_assoc($result);
@@ -99,6 +104,7 @@
                 </div>
             </div>
         </div>
+        <form action="<?php  echo $_SERVER['REQUEST_URI'] ?>" method="post">
         <div class="card-footer pt-3 border-0" style="background-color: #f8f9fa;">
             <div class="d-flex flex-start w-100">
               <img class="rounded-circle shadow-1-strong me-3"
@@ -106,14 +112,15 @@
                 height="40" />
               <div class="form-outline w-100">
                 <textarea class="form-control" id="textAreaExample" rows="4"
-                  style="background: #fff;"></textarea>
+                  style="background: #fff;" name="desc"></textarea>
               </div>
             </div>
             <div class="float-end mb-3 pt-1">
-              <button type="button" class="btn btn-primary btn-sm">Post comment</button>
+              <button type="submit" class="btn btn-primary btn-sm">Post comment</button>
               <button type="button" class="btn btn-outline-primary btn-sm">Cancel</button>
             </div>
     </div>
+    </form>
 
 
 
