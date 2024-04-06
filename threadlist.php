@@ -75,8 +75,8 @@
     $date=$daterow['date(timedate)'];
     echo'<div class="d-flex flex-start">
     <img class="rounded-circle shadow-1-strong me-3"
-      src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp" alt="avatar" width="65"
-      height="65" />
+      src="content/anoymous.png" alt="avatar" width="40"
+      height="40" />
     <div class="flex-grow-1 flex-shrink-1">
       <div>
         <div class="d-flex justify-content-between align-items-center">
@@ -104,23 +104,30 @@
                 </div>
             </div>
         </div>
-        <form action="<?php  echo $_SERVER['REQUEST_URI'] ?>" method="post">
-        <div class="card-footer pt-3 border-0" style="background-color: #f8f9fa;">
-            <div class="d-flex flex-start w-100">
-              <img class="rounded-circle shadow-1-strong me-3"
-                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp" alt="avatar" width="40"
-                height="40" />
-              <div class="form-outline w-100">
-                <textarea class="form-control" id="textAreaExample" rows="4"
-                  style="background: #fff;" name="desc"></textarea>
-              </div>
+
+        <?php  
+        if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
+          echo '<form action="'.$_SERVER['REQUEST_URI'] .'" method="post">
+          <div class="card-footer pt-3 border-0" style="background-color: #f8f9fa;">
+          <div class="d-flex flex-start w-100">
+            <img class="rounded-circle shadow-1-strong me-3"
+              src="content/anoymous.png" alt="avatar" width="40"
+              height="40" />
+            <div class="form-outline w-100">
+              <textarea class="form-control" id="textAreaExample" rows="4"
+                style="background: #fff;" name="desc"></textarea>
             </div>
-            <div class="float-end mb-3 pt-1">
-              <button type="submit" class="btn btn-primary btn-sm">Post comment</button>
-              <button type="button" class="btn btn-outline-primary btn-sm">Cancel</button>
-            </div>
-    </div>
-    </form>
+          </div>
+          <div class="float-end mb-3 pt-1">
+            <button type="submit" class="btn btn-primary btn-sm">Post comment</button>
+            <button type="button" class="btn btn-outline-primary btn-sm">Cancel</button>
+          </div>
+  </div>
+  </form>
+          ';
+        }
+        ?>
+
 
 
 
