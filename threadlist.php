@@ -18,7 +18,8 @@
    $id=$_GET['catid'];
    if(!empty($_POST) && $_SERVER['REQUEST_METHOD']=='POST'){
     $desc=$_POST['desc'];
-    $sql1="INSERT INTO `comment` (`c_desc`, `c_user_id`, `c_cat_id`, `timedate`) VALUES ('$desc', '0', '$id', current_timestamp());";
+    $user_id=$_SESSION['sno'];
+    $sql1="INSERT INTO `comment` (`c_desc`, `c_user_id`, `c_cat_id`, `timedate`) VALUES ('$desc', '$user_id', '$id', current_timestamp());";
     $result1=mysqli_query($conn,$sql1);
    }
    $sql="SELECT * FROM `catagory` WHERE catagory_id=$id;";
@@ -69,10 +70,14 @@
    while($row=mysqli_fetch_assoc($result)){
     $com_desc=$row['c_desc'];
     $com_id=$row['c_id'];
+    $user_id=$row['c_user_id'];
     $sql1="SELECT date(timedate) FROM `comment` WHERE c_id=$com_id;";
     $res=mysqli_query($conn,$sql1);
     $daterow=mysqli_fetch_assoc($res);
     $date=$daterow['date(timedate)'];
+    $sql2="SELECT name FROM `users` WHERE sno=$user_id;";
+    $result2=mysqli_query($conn,$sql2);
+    $row2=mysqli_fetch_assoc($result2);
     echo'<div class="d-flex flex-start">
     <img class="rounded-circle shadow-1-strong me-3"
       src="content/anoymous.png" alt="avatar" width="40"
@@ -81,7 +86,7 @@
       <div>
         <div class="d-flex justify-content-between align-items-center">
           <p class="mb-1">
-            Maria Smantha <span class="small">'.$date.'</span>
+            '.$row2['name'].' <span class="small">'.$date.'</span>
           </p>
           <a href="#!"><i class="bi bi-reply"></i></a>
         </div>
